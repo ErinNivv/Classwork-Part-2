@@ -8,6 +8,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/NGO_Minimal_Setup/NGO_Setup.unity
+    guid: ecd4ded589ae7804d9aa383ab4215feb
+  - enabled: 1
+    path: Assets/Scenes/NGO.unity
+    guid: 8d8afbe673c4962428c7926f9666ec44
+  - enabled: 1
+    path: Assets/Scenes/NGO_FPS.unity
+    guid: 095ff27957fd51647be8b3da4d9bf0ed
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
