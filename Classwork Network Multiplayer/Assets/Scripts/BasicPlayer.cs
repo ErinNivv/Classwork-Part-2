@@ -17,7 +17,7 @@ public class BasicPlayer : NetworkBehaviour
 
         moveAction = playerInput.actions["Move"];
 
-        playerInput.enabled = true;
+        playerInput.enabled = false;
         moveAction.Enable();
     }
 

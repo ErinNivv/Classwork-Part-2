@@ -13,10 +13,12 @@ public class NetworkFPSPlayer : NetworkBehaviour
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float lookSensitivity = 2f;
     [SerializeField] private float maxPitch = 80f;
+    [SerializeField] private float jumpHeight = 5f;
 
     private PlayerInput pi;
     private InputAction moveAction;
     private InputAction lookAction;
+    private InputAction jumpAction;
     private CharacterController cc;
 
     private float pitch;
@@ -30,14 +32,16 @@ public class NetworkFPSPlayer : NetworkBehaviour
         {
             if(playerCamera) playerCamera.enabled = false;
             if(pi) pi.enabled = false;
-            enabled = true;
+            enabled = false;
             return;
         }
 
         moveAction = pi.actions["Move"];
         lookAction = pi.actions["Look"];
+        jumpAction = pi.actions["Jump"];
         moveAction.Enable();
         lookAction.Enable();
+        jumpAction.Enable();
 
         if (playerCamera) playerCamera.enabled = true;
     }
@@ -54,5 +58,8 @@ public class NetworkFPSPlayer : NetworkBehaviour
         pitch -= look.y;
         pitch = Mathf.Clamp(pitch, -maxPitch, maxPitch);
         cameraPivot.localEulerAngles = new Vector3(pitch, 0f, 0f);
+
+        Vector2 j = jumpAction.ReadValue<Vector2>();
+        j = transform.position * jumpHeight * j;
     }
 }
